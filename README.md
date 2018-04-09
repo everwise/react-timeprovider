@@ -76,15 +76,18 @@ that function.
 
 A HOC that will pass the prop `currentTime` to the wrapped component.
 
-### `createTimeProvider`
+### `createTimeProvider(getTime)`
 
-If you are writing tests and want to mock out the time getting function or if
-you don't like the default time representation you can create your own
+If you are writing tests and want to mock out the `getTime` function or if you
+don't like the default time representation you can create your own
 `<TimeProvider>` component.
 
 ```jsx
 const MockTimeProvider = createTimeProvider(() => '2018–04–06T12:30:00Z');
 ```
+
+The `getTime` function will be passed any extra props that you set onto
+`<TimeProvider>`. This is useful if you want the time zone for example.
 
 ## License
 

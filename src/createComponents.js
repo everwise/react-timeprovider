@@ -7,7 +7,9 @@ import * as React from 'react';
 
 // We return the ISO string version of the date. This is nice because it is not
 // a mutable object like `Date` and it is also a human readable representation.
-const defaultGetTime = () => new Date().toISOString();
+const defaultGetTime = (/* props */) => new Date().toISOString();
+
+const cleanProps = ({ interval, children, ...props }) => props;
 
 const createComponents = ({ Provider, Consumer }) => {
   // We export a TimeProvider factory if they need to override how we `getTime`.
@@ -17,12 +19,35 @@ const createComponents = ({ Provider, Consumer }) => {
         interval: 500,
       };
 
+      static getDerivedStateFromProps(nextProps, prevState) {
+        const didChange = Object.keys(nextProps).reduce(
+          (acc, key) => acc || nextProps[key] !== prevState[key],
+          false,
+        );
+        if (!didChange) return null;
+
+        const props = cleanProps(nextProps);
+
+        return {
+          ...prevState,
+          ...props,
+          currentTime: getTime(props),
+        };
+      }
+
       state = {
-        currentTime: getTime(),
+        ...cleanProps(this.props),
+        currentTime: getTime(cleanProps(this.props)),
       };
 
       componentDidMount() {
         this.interval = setInterval(this.updateTime, this.props.interval);
+      }
+
+      componentWillReceiveProps(nextProps) {
+        const nextState = TimeProvider.getDerivedStateFromProps(nextProps, this.state);
+        if (nextState === null) return;
+        this.setState(nextState);
       }
 
       componentWillUnmount() {
@@ -33,7 +58,7 @@ const createComponents = ({ Provider, Consumer }) => {
 
       updateTime = () => {
         this.setState(() => ({
-          currentTime: getTime(),
+          currentTime: getTime(cleanProps(this.props)),
         }));
       };
 
