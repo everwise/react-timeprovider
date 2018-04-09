@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TimeProvider GetTime can get the time from the Provider 1`] = `"2018–04–06T12:30:00Z"`;
+
+exports[`TimeProvider withTime can get the time from the Provider 1`] = `
+<span>
+  2018–04–06T12:30:00Z
+</span>
+`;
