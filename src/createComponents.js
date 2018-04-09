@@ -9,7 +9,7 @@ import * as React from 'react';
 // a mutable object like `Date` and it is also a human readable representation.
 const defaultGetTime = () => new Date().toISOString();
 
-const createComponents = ({ Provider, Consumer }) => { 
+const createComponents = ({ Provider, Consumer }) => {
   // We export a TimeProvider factory if they need to override how we `getTime`.
   const createTimeProvider = getTime =>
     class TimeProvider extends React.PureComponent {
