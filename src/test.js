@@ -3,7 +3,7 @@ import TestRenderer from 'react-test-renderer';
 import { createContext } from 'react-broadcast';
 import { shallow } from 'enzyme';
 
-import { createTimeProvider, GetTime, withTime } from './main';
+import { createTimeProvider, GetTime, withTime } from './';
 import createComponents from './createComponents';
 
 const Broadcast = createComponents(createContext({}));

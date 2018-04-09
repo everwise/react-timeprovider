@@ -22,9 +22,7 @@
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/jest.setup.js"
   },
-  "dependencies": {
-    "esm": "^3.0.17"
-  },
+  "dependencies": {},
   "peerDependencies": {
     "react": ">=16.3.0",
     "react-dom": ">=16.3.0"
