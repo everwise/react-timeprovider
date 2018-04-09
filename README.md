@@ -49,6 +49,22 @@ const App = () => (
 export default App;
 ```
 
+**Note:** React TimePicker assumes you are using React >= 16.3.0. If you are
+using an older version you can still use the library in conjunction with
+`react-broadcast` >= 0.7. Here is how:
+
+```jsx
+import { createContext } from 'react-broadcast';
+import createComponents from 'react-timeprovider/createComponents';
+
+const {
+  createTimeProvider,
+  TimeProvider,
+  GetTime,
+  withTime,
+} = createComponents(createContext());
+```
+
 ## Documentation
 
 ### `<TimeProvider>`
