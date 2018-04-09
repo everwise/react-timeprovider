@@ -6,7 +6,7 @@ import { shallow } from 'enzyme';
 import { createTimeProvider, GetTime, withTime } from './';
 import createComponents from './createComponents';
 
-const Broadcast = createComponents(createContext({}));
+const Broadcast = createComponents(createContext());
 
 const MockTimeProvider = createTimeProvider(() => '2018–04–06T12:30:00Z');
 const BCMockTimeProvider = Broadcast.createTimeProvider(() => '2018–04–06T12:30:00Z');
