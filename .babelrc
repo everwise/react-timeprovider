@@ -6,7 +6,9 @@
     "stage-0",
     "react"
   ],
-  "plugins": [
-    "external-helpers"
-  ]
+  "env": {
+    "test": {
+      "presets": [["env"], "stage-0", "react"]
+    }
+  }
 }

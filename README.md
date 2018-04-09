@@ -21,9 +21,9 @@ yarn add react-timeprovider
 ## Usage
 
 ```jsx
-import * as React from 'react'
+import * as React from 'react';
 
-import { TimeProvider, GetTime } from 'react-timeprovider'
+import { TimeProvider, GetTime } from 'react-timeprovider';
 
 const WeekendStatus = ({ currentTime }) => {
   // Because we take currentTime as a prop, we now no longer depend
@@ -40,9 +40,7 @@ const WeekendStatus = ({ currentTime }) => {
 const App = () => (
   <TimeProvider>
     <h1>Is it the weekend?</h1>
-    <GetTime>
-      {({ currentTime }) => <WeekendStatus currentTime={currentTime} />}
-    </GetTime>
+    <GetTime>{({ currentTime }) => <WeekendStatus currentTime={currentTime} />}</GetTime>
   </TimeProvider>
 );
 
@@ -55,14 +53,9 @@ using an older version you can still use the library in conjunction with
 
 ```jsx
 import { createContext } from 'react-broadcast';
-import createComponents from 'react-timeprovider/createComponents';
+import createComponents from 'react-timeprovider/dist/createComponents';
 
-const {
-  createTimeProvider,
-  TimeProvider,
-  GetTime,
-  withTime,
-} = createComponents(createContext());
+const { createTimeProvider, TimeProvider, GetTime, withTime } = createComponents(createContext());
 ```
 
 ## Documentation
@@ -71,7 +64,7 @@ const {
 
 Props:
 
-- `interval` (number, default `500`) - The number of milliseconds to wait before
+* `interval` (number, default `500`) - The number of milliseconds to wait before
   updating the time.
 
 ### `<GetTime>`

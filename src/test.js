@@ -2,7 +2,7 @@ import * as React from 'react';
 import TestRenderer from 'react-test-renderer';
 import { createContext } from 'react-broadcast';
 
-import { createTimeProvider, GetTime, withTime } from './';
+import { createTimeProvider, GetTime, withTime } from './main';
 import createComponents from './createComponents';
 
 const Broadcast = createComponents(createContext({}));
