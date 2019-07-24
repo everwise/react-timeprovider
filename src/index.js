@@ -1,7 +1,48 @@
 import * as React from 'react';
 
-import createComponents from './createComponents';
+const Context = React.createContext();
 
-export const { createTimeProvider, TimeProvider, GetTime, withTime } = createComponents(
-  React.createContext(),
+// We return the ISO string version of the date. This is nice because it is not
+// a mutable object like `Date` and it is also a human readable representation.
+const defaultGetTime = (/* props */) => new Date().toISOString();
+
+const cleanProps = ({ interval, children, ...props }) => props;
+
+// We export a TimeProvider factory if they need to override how we `getTime`.
+export const createTimeProvider = getTime => ({ interval = 500, children, ...props }) => {
+  const [currentTime, setCurrentTime] = React.useState(getTime(props));
+
+  React.useEffect(
+    () => {
+      const intervalId = setInterval(() => {
+        setCurrentTime(getTime(props));
+      }, interval);
+
+      return () => {
+        clearInterval(intervalId);
+      };
+    },
+    [setCurrentTime],
+  );
+
+  return <Context.Provider value={{ currentTime, ...props }}>{children}</Context.Provider>;
+};
+
+export const TimeProvider = createTimeProvider(defaultGetTime);
+
+export const GetTime = Context.Consumer;
+
+export const withTime = WrappedComponent => props => (
+  <GetTime>
+    {({ currentTime }) => (
+      <WrappedComponent
+        // by passing currentTime first and ...props second, we allow
+        // parent components to override the currentTime
+        currentTime={currentTime}
+        {...props}
+      />
+    )}
+  </GetTime>
 );
+
+export const useTime = () => React.useContext(Context);
