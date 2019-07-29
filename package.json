@@ -10,13 +10,11 @@
   "module": "dist/main.js",
   "jsnext:main": "dist/main.js",
   "scripts": {
-    "test": "jest src",
-    "test:watch": "yarn test --watch",
     "build": "babel -d dist src",
-    "start": "yarn build --watch",
-    "prepare": "yarn run build",
+    "lint": "eslint --cache .",
     "precommit": "pretty-quick --staged",
-    "predeploy": "cd example && yarn install && yarn run build"
+    "prepare": "yarn run build",
+    "test": "jest src"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
@@ -28,7 +26,12 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.2",
     "babel-jest": "^24.8",
+    "eslint": "^6.1.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^1.6.1",
     "husky": "^0.14.3",
     "jest": "^24.8",
     "prettier": "^1.11.1",

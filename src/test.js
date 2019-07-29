@@ -44,7 +44,7 @@ describe('TimeProvider', () => {
     const getTime = jest.fn(({ timeZone }) => 'Time' + timeZone);
     const TP = createTimeProvider(getTime);
 
-    const tree = TestRenderer.create(<TP timeZone="America/New_York">Hi</TP>);
+    TestRenderer.create(<TP timeZone="America/New_York">Hi</TP>);
 
     expect(getTime).toBeCalledWith({ timeZone: 'America/New_York' });
   });
