@@ -34,11 +34,11 @@ export const GetTime = Context.Consumer;
 
 export const withTime = WrappedComponent => props => (
   <GetTime>
-    {({ currentTime }) => (
+    {timeProps => (
       <WrappedComponent
-        // by passing currentTime first and ...props second, we allow
-        // parent components to override the currentTime
-        currentTime={currentTime}
+        // by passing timeProps first and ...props second, we allow
+        // parent components to override the timeProps
+        {...timeProps}
         {...props}
       />
     )}
