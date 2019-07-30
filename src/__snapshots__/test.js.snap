@@ -1,27 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TimeProvider Broadcast.GetTime can get the time from the Provider 1`] = `"2018–04–06T12:30:00Z"`;
+exports[`TimeProvider GetTime can get the time from the Provider 1`] = `"2018–04–06T12:30:00Z"`;
 
-exports[`TimeProvider Broadcast.withTime can get the time from the Provider 1`] = `
+exports[`TimeProvider useTime can get the time from the Provider 1`] = `
 <span>
   2018–04–06T12:30:00Z
 </span>
-`;
-
-exports[`TimeProvider GetTime can get the time from the Provider 1`] = `"2018–04–06T12:30:00Z"`;
-
-exports[`TimeProvider TimeProvider calls getTime with props 1`] = `
-Object {
-  "currentTime": "TimeAmerica/New_York",
-  "timeZone": "America/New_York",
-}
-`;
-
-exports[`TimeProvider TimeProvider calls getTime with props 2`] = `
-Object {
-  "currentTime": "TimeAmerica/Denver",
-  "timeZone": "America/Denver",
-}
 `;
 
 exports[`TimeProvider withTime can get the time from the Provider 1`] = `
