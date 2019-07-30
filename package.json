@@ -10,7 +10,7 @@
   "module": "dist/main.js",
   "jsnext:main": "dist/main.js",
   "scripts": {
-    "build": "babel -d dist src",
+    "build": "rm -rf dist && babel -d dist src",
     "lint": "eslint --cache .",
     "precommit": "pretty-quick --staged",
     "prepare": "yarn run build",
