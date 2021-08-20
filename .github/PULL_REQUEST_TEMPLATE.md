@@ -26,6 +26,10 @@
 <!--- Include details of the testing environment, and the tests you ran to -->
 <!--- see how your change affects other areas of the code, etc. -->
 
+## Security
+
+* [ ] Security impact of change has been considered
+* [ ] Code follows company security practices and guidelines
 
 ## Screenshots or Gifs
 <!--- If you include a screenshot here, be sure to attach it to the ticket as well. -->
